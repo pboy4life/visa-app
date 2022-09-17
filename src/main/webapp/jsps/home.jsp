@@ -12,7 +12,7 @@
 <h1 align="center">Welcome to Landmark Technologies.</h1>
 <h2 align="center"> We are supporting the Ebay Black Friday Project.
 	Landmark Technologies is a software development company. 
-	Class29 will run from July 9, 2022. I love the Champion Team.
+	Class29 will run from July 9, 2022. The Champions Team is the best.
 	The shout of the King Jesus is in our midst. HE IS OUR SUCCESS ACCESS KEY</h2>
 <hr>
 <div style="text-align: center;">
