@@ -29,7 +29,7 @@ node{
   }
  stage('7Deploy2Prod'){
     sh "echo 'Approval received - Client is happy, please Deploy to Production'"
-    sh "echo sleep 50"
+    sh "sleep 50"
     deploy adapters: [tomcat9(credentialsId: 'TomcatCredentials', path: '', url: 'http://15.222.242.57:8080/')], contextPath: null, war: 'target/*war'
   }
  stage('8emailNotification'){
