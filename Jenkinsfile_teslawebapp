@@ -1,0 +1,50 @@
+node{
+  def mavenHome = tool name: 'maven3.8.6'
+  stage('1CloneCode'){
+    git "https://github.com/pboy4life/tesla-webapp"
+  }
+  stage('2Test&Build'){
+    sh "${mavenHome}/bin/mvn clean package"
+    //bat "${mavenHome}/bin/mvn clean package"
+  }
+  stage('3CodeQuality'){
+    sh "${mavenHome}/bin/mvn sonar:sonar"
+  }
+  stage('4UploadArtifacts'){
+    //sh "${mavenHome}/bin/mvn deploy"
+    //http://35.182.246.127:8255/royalsdown/repository/tesla-fe-releases/
+    //http://35.182.246.127:8255/royalsdown/repository/tesla-fe-snapshots/
+    // vi pom.xml and nexus repository details   
+    // vi setting.xml and add nexus authentication details  
+  } 
+ stage('5Deploy2UAT'){
+    sh "echo 'Deploy to UAT'"
+    deploy adapters: [tomcat9(credentialsId: 'TomcatCredentials', path: '', url: 'http://15.222.242.57:8080/')], contextPath: null, war: 'target/*war'
+  }
+ stage('6ApprovalGate'){
+    sh "echo 'Ready for review'"
+    timeout(time:5, unit:'DAYS'){
+    input message: 'Application ready for deployment, Please review and approve'
+      }
+  }
+ stage('7Deploy2Prod'){
+    sh "echo 'Approval received - Client is happy, please Deploy to Production'"
+    deploy adapters: [tomcat9(credentialsId: 'TomcatCredentials', path: '', url: 'http://15.222.242.57:8080/')], contextPath: null, war: 'target/*war'
+  }
+ stage('8emailNotification'){
+  emailext body: '''Hello Team,
+
+The tesla-webapp project has been approved and successfully deployed to Production.
+Great job Team Champions for your relentless hardwork and display of professionalism on this project.
+        
+Thank you!!
+
+See you on the next project. 
+
+Regards,
+
+Pboy4life
+For: Management,
+Omi\'s Dev Ventures and Technologies. ''', recipientProviders: [developers(), requestor()], subject: 'Tesla-webapp Build Status', to: 'paroyal007@gmail.com'
+ }
+}
