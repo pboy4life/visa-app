@@ -97,19 +97,19 @@
 	    <repository>
 	      <id>nexus</id>
 	      <name>Landmark Technologies Releases Nexus Repository</name>
-	      <url>http://3.98.142.69:8255/royalsdown/repository/tesla-fe-releases/</url>
+	      <url>http://3.98.142.69:8255/royalsdown/repository/visa-avion-releases/</url>
 	    </repository>
 	    
 	    <snapshotRepository>
 	      <id>nexus</id>
 	      <name>Landmark Technologies Snapshot Nexus Repository </name>
-	      <url>http://3.98.142.69:8255/royalsdown/repository/tesla-fe-snapshots/</url>
+	      <url>http://3.98.142.69:8255/royalsdown/repository/visa-avion-snapshots/</url>
 	    </snapshotRepository>
 	    
 	</distributionManagement>
 	
 	<build>
-		<finalName>tesla-webapp</finalName>
+		<finalName>visa-uat</finalName>
 		
 		<plugins>
 			<plugin>
