@@ -97,13 +97,13 @@
 	    <repository>
 	      <id>nexus</id>
 	      <name>Landmark Technologies Releases Nexus Repository</name>
-	      <url>http://3.98.142.69:8255/royalsdown/repository/visa-avion-releases/</url>
+	      <url>http://172.31.2.191:8255/royalsdown/repository/visa-avion-releases/</url>
 	    </repository>
 	    
 	    <snapshotRepository>
 	      <id>nexus</id>
 	      <name>Landmark Technologies Snapshot Nexus Repository </name>
-	      <url>http://3.98.142.69:8255/royalsdown/repository/visa-avion-snapshots/</url>
+	      <url>http://172.31.2.191:8255/royalsdown/repository/visa-avion-snapshots/</url>
 	    </snapshotRepository>
 	    
 	</distributionManagement>
